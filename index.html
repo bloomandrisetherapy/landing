@@ -2,14 +2,14 @@
 <html lang="en">
 <head>
 <meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 
-<title>Bloom &amp; Rise Therapy | Roshunda M. Hartison, MEd, LPC</title>
-<meta name="description" content="Bloom &amp; Rise is a new therapy practice opening soon. Weight inclusive care for body image, identity, self trust, and anxiety. Online in Texas, Virginia, and Colorado with Roshunda M. Hartison, MEd, LPC.">
+<title>Bloom &amp; Rise Therapy | Roshunda M. Hartison, M.Ed., LPC</title>
+<meta name="description" content="Bloom &amp; Rise is a new therapy practice opening soon. Weight inclusive care for body image, identity, self trust, and anxiety. Online in Texas, Virginia, and Colorado with Roshunda M. Hartison, M.Ed., LPC.">
 <link rel="canonical" href="https://bloomandrisetherapy.com/">
 <meta name="robots" content="index,follow">
 <meta name="theme-color" content="#FBF3E4">
-<meta name="author" content="Roshunda M. Hartison, MEd, LPC">
+<meta name="author" content="Roshunda M. Hartison, M.Ed., LPC">
 
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="Bloom &amp; Rise Therapy">
@@ -25,7 +25,7 @@
 <meta name="twitter:description" content="A new therapy practice for the part where you change. Online in Texas, Virginia, and Colorado.">
 <meta name="twitter:image" content="https://bloomandrisetherapy.com/og.png">
 
-<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' fill='%23FBF3E4'/%3E%3Cpath d='M16 22c-3-6-8-8-10.5-5.5C3 19 5.5 24 9.5 25.5c2.5 1 5 .5 6.5-3.5z' fill='%23E4661C'/%3E%3Cpath d='M16 22c3-6 8-8 10.5-5.5C29 19 26.5 24 22.5 25.5c-2.5 1-5 .5-6.5-3.5z' fill='%230E6B5A'/%3E%3Cpath d='M16 9v14' stroke='%232A2118' stroke-width='2' stroke-linecap='round'/%3E%3C/svg%3E">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' fill='%23FBF3E4'/%3E%3Cpath d='M2 24h28' stroke='%230E6B5A' stroke-width='2' stroke-linecap='round'/%3E%3Ccircle cx='16' cy='24' r='8' fill='%23F5C24B'/%3E%3Cpath d='M16 6v3M6.5 9.5l2 2M25.5 9.5l-2 2M3 18h3M26 18h3' stroke='%23E4661C' stroke-width='2' stroke-linecap='round'/%3E%3C/svg%3E">
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -44,7 +44,7 @@
   "founder": {
     "@type": "Person",
     "name": "Roshunda M. Hartison",
-    "honorificSuffix": "MEd, LPC",
+    "honorificSuffix": "M.Ed., LPC",
     "jobTitle": "Licensed Professional Counselor"
   },
   "areaServed": [
@@ -65,15 +65,16 @@
 :root{
   --paper:#FBF3E4;
   --paper-2:#F5EAD6;
+  --field:#FFFCF4;
   --ink:#2A2118;
-  --ink-2:#6B6152;
-  --ink-3:#9A9080;
+  --ink-2:#615748;
+  --ink-3:#938976;
   --orange:#E4661C;
   --orange-deep:#B8410E;
   --coneflower:#C0447E;
   --jade:#0E6B5A;
   --sun:#F5C24B;
-  --gut:clamp(1.6rem,6vw,6rem);
+  --gut:clamp(1.5rem,6vw,6rem);
 }
 *,*::before,*::after{box-sizing:border-box}
 html{-webkit-text-size-adjust:100%}
@@ -86,12 +87,12 @@ body{
 h1{
   font-family:'Fraunces',Georgia,serif;
   font-variation-settings:'SOFT' 60,'WONK' 1,'opsz' 120;
-  font-weight:400;font-size:clamp(2.4rem,4.8vw,4.15rem);line-height:1.02;
+  font-weight:400;font-size:clamp(2.35rem,4.8vw,4.15rem);line-height:1.02;
   letter-spacing:-.03em;margin:0;
 }
 h1 em{font-style:italic;color:var(--orange-deep);font-variation-settings:'SOFT' 90,'WONK' 1}
 a{color:inherit}
-img{display:block;max-width:100%}
+img,svg{display:block;max-width:100%}
 ::selection{background:var(--sun);color:var(--ink)}
 :focus-visible{outline:2px solid var(--orange);outline-offset:3px}
 .skip{position:absolute;left:0;top:0;z-index:60;background:var(--ink);color:var(--paper);padding:.9rem 1.4rem;transform:translateY(-120%)}
@@ -120,7 +121,7 @@ img{display:block;max-width:100%}
   background:radial-gradient(circle,rgba(245,194,75,.42) 0%,rgba(228,102,28,.16) 42%,rgba(251,243,228,0) 72%);
 }
 
-.col{position:relative;z-index:1;display:flex;flex-direction:column;
+.col{position:relative;z-index:2;display:flex;flex-direction:column;
   padding:clamp(1.4rem,3vh,2.2rem) clamp(1.5rem,3vw,3.5rem) clamp(1.4rem,3vh,2.2rem) var(--gut);}
 .col > .mid{flex:1;display:flex;flex-direction:column;justify-content:center;padding:clamp(1rem,2.5vh,2rem) 0}
 
@@ -135,38 +136,55 @@ img{display:block;max-width:100%}
   font-size:.66rem;letter-spacing:.24em;text-transform:uppercase;color:var(--jade);
   font-weight:600;margin:0 0 1.15rem;
 }
-.lede{font-size:clamp(.98rem,1.05vw,1.06rem);line-height:1.62;color:var(--ink-2);max-width:42ch;margin:1.5rem 0 0}
+.lede{font-size:clamp(.96rem,1.05vw,1.06rem);line-height:1.6;color:var(--ink-2);max-width:42ch;margin:1.4rem 0 0}
 .lede b{color:var(--ink);font-weight:600}
 
 .quote{
-  margin:1.9rem 0 0;padding-left:1.15rem;border-left:2px solid var(--coneflower);
+  margin:1.7rem 0 0;padding-left:1.15rem;border-left:2px solid var(--coneflower);
   font-family:'Fraunces',serif;font-variation-settings:'SOFT' 80,'WONK' 1;
-  font-style:italic;font-size:1rem;line-height:1.35;color:var(--ink);max-width:34ch;
+  font-style:italic;font-size:1rem;line-height:1.35;color:var(--ink);max-width:38ch;
 }
 .quote span{
   display:block;margin-top:.35rem;font-family:'Inter Tight',sans-serif;font-style:normal;
-  font-size:.72rem;letter-spacing:.14em;text-transform:uppercase;color:var(--ink-3);
+  font-size:.71rem;letter-spacing:.1em;text-transform:uppercase;color:var(--ink-3);white-space:nowrap;
 }
 
 /* ─── form ──────────────────────────────────────────────────── */
-form{margin:clamp(1.4rem,3vh,2rem) 0 0;max-width:34rem}
+form{margin:clamp(1.3rem,3vh,2rem) 0 0;max-width:34rem}
 .reveal{display:grid;grid-template-rows:0fr;opacity:0;
   transition:grid-template-rows .8s cubic-bezier(.2,.8,.3,1),opacity .6s ease .15s}
 .reveal.on{grid-template-rows:1fr;opacity:1}
 .reveal > div{overflow:hidden;min-height:0}
-.fields{display:grid;grid-template-columns:minmax(0,.85fr) minmax(0,1.15fr);gap:1rem;padding-top:.4rem}
+.fields{display:grid;grid-template-columns:minmax(0,.85fr) minmax(0,1.15fr);gap:.85rem;padding-top:.45rem}
 @media (max-width:560px){.fields{grid-template-columns:1fr;gap:.6rem}}
 .f{position:relative}
 .f input{
   width:100%;font:inherit;font-size:1rem;color:var(--ink);
-  background:transparent;border:0;border-bottom:1.5px solid rgba(42,33,24,.26);
-  padding:.7rem 0;border-radius:0;transition:border-color .25s;
+  background:rgba(255,252,244,.8);
+  border:1.5px solid rgba(42,33,24,.15);border-radius:.6rem;
+  padding:.76rem .9rem;
+  transition:border-color .25s,background-color .25s,box-shadow .25s;
 }
 .f input::placeholder{color:var(--ink-3)}
-.f input:focus{outline:none;border-bottom-color:var(--orange)}
-.f input:user-invalid{border-bottom-color:var(--orange-deep)}
+.f input:hover{border-color:rgba(42,33,24,.3)}
+.f input:focus{outline:none;border-color:var(--orange);background:var(--field);
+  box-shadow:0 0 0 3px rgba(228,102,28,.15)}
+.f input:user-invalid{border-color:var(--orange-deep);box-shadow:0 0 0 3px rgba(184,65,14,.12)}
+/* keep Chrome/Safari autofill from painting the field blue */
+.f input:-webkit-autofill,
+.f input:-webkit-autofill:hover{
+  -webkit-text-fill-color:var(--ink);
+  -webkit-box-shadow:0 0 0 100px var(--field) inset;
+  caret-color:var(--ink);
+  transition:background-color 600000s 0s,color 600000s 0s;
+}
+.f input:-webkit-autofill:focus{
+  -webkit-box-shadow:0 0 0 100px var(--field) inset,0 0 0 3px rgba(228,102,28,.15);
+}
+.f input:autofill{background:var(--field);color:var(--ink)}
+
 button{
-  margin-top:1.25rem;font:inherit;font-weight:500;font-size:.86rem;letter-spacing:.14em;
+  margin-top:1.2rem;font:inherit;font-weight:500;font-size:.86rem;letter-spacing:.14em;
   text-transform:uppercase;cursor:pointer;color:var(--ink);
   background:none;border:0;padding:.4rem 0;
   display:inline-flex;align-items:center;gap:1rem;transition:color .25s;
@@ -176,19 +194,41 @@ button:hover{color:var(--orange-deep)}
 button:hover::before{width:4rem;background:var(--orange-deep)}
 button:disabled{color:var(--ink-3);cursor:default}
 button:disabled::before{background:var(--ink-3);width:2.6rem}
-.fine{font-size:.76rem;line-height:1.5;color:var(--ink-3);margin:1.15rem 0 0;max-width:48ch}
+.fine{font-size:.75rem;line-height:1.5;color:var(--ink-3);margin:1.05rem 0 0;max-width:48ch}
 .fine a{color:var(--ink-2);text-underline-offset:3px}
-.status{display:none;margin:1.4rem 0 0;font-size:.95rem;color:var(--jade);border-left:2px solid var(--jade);padding-left:1rem;max-width:44ch}
-.status.on{display:block}
-.status.bad{color:var(--orange-deep);border-color:var(--orange-deep)}
 .hp{position:absolute;width:1px;height:1px;overflow:hidden;clip-path:inset(50%)}
+
+/* ─── the moment it works ───────────────────────────────────── */
+.status{display:none;position:relative;margin:1.25rem 0 0;max-width:44ch;overflow:hidden;
+  padding:1rem 1.2rem 1.05rem 3.15rem;border-radius:.75rem;
+  background:rgba(255,252,244,.86);border:1px solid rgba(14,107,90,.24);
+  box-shadow:0 12px 34px -26px rgba(42,33,24,.85);
+  font-size:.9rem;line-height:1.5;color:var(--ink-2);}
+.status.on{display:block;animation:pop .55s cubic-bezier(.2,.9,.3,1) both}
+.status strong{display:block;margin-bottom:.15rem;color:var(--ink);
+  font-family:'Fraunces',Georgia,serif;font-variation-settings:'SOFT' 60,'WONK' 1;
+  font-weight:500;font-size:1.2rem;line-height:1.15;letter-spacing:-.015em;}
+.status .sun{position:absolute;left:1.05rem;top:1.15rem;width:1.4rem;height:1.4rem;border-radius:50%;
+  background:radial-gradient(circle at 50% 42%,#FFF6DC 0%,#F5C24B 55%,#E4661C 100%);
+  box-shadow:0 0 0 5px rgba(245,194,75,.2);animation:rise .95s cubic-bezier(.2,.9,.3,1) both}
+.status .again{margin:.7rem 0 0;font-size:.7rem;letter-spacing:.13em;color:var(--jade)}
+.status .again::before{width:1.6rem;background:var(--jade)}
+.status .again:hover{color:var(--ink)}
+.status .again:hover::before{width:2.4rem;background:var(--ink)}
+.status .bar{position:absolute;left:0;right:0;bottom:0;height:2px;background:var(--jade);opacity:.3;
+  transform-origin:0 50%;animation:drain 9s linear both}
+.status.bad{padding-left:1.2rem;color:var(--orange-deep);
+  background:rgba(255,247,240,.9);border-color:rgba(184,65,14,.3)}
+
+@keyframes pop{from{opacity:0;transform:translateY(8px) scale(.985)}to{opacity:1;transform:none}}
+@keyframes rise{from{opacity:0;transform:translateY(10px) scale(.6)}to{opacity:1;transform:none}}
+@keyframes drain{from{transform:scaleX(1)}to{transform:scaleX(0)}}
 
 .foot{padding-right:var(--gut);font-size:.68rem;letter-spacing:.16em;text-transform:uppercase;color:var(--ink-3)}
 
 /* ─── art ───────────────────────────────────────────────────── */
 .art{position:relative;z-index:1;overflow:hidden;background:var(--paper-2)}
-.art img{position:absolute;inset:0}
-.art img{width:100%;height:100%;object-fit:cover;object-position:52% 42%;
+.art img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:52% 42%;
   animation:in 1.5s cubic-bezier(.16,.8,.3,1) both}
 @keyframes in{from{opacity:0;transform:scale(1.04)}to{opacity:1;transform:none}}
 .art::after{
@@ -200,17 +240,48 @@ button:disabled::before{background:var(--ink-3);width:2.6rem}
   background:linear-gradient(90deg,var(--paper),rgba(251,243,228,0));
 }
 
+/* ─── one screen on phones, real padding at both edges ──────── */
 @media (max-width:880px){
-  .wrap{grid-template-columns:1fr;grid-template-rows:auto auto;height:auto;min-height:0}
-  .col{padding:1.4rem 0 2.6rem var(--gut);order:2}
-  .col > .mid{padding:1.6rem 0 0}
-  .art{order:1;height:36svh;min-height:220px}
-  .art img{object-position:50% 36%}
+  .wrap{grid-template-columns:1fr;grid-template-rows:auto minmax(0,1fr);height:100svh;min-height:0}
+  .art{order:1;height:30svh;min-height:164px}
+  .art img{object-position:50% 34%}
   .art::before{display:none}
-  .art::after{mix-blend-mode:normal;background:linear-gradient(180deg,rgba(251,243,228,0) 58%,rgba(251,243,228,.55) 82%,var(--paper))}
-  .top{order:0}
-  .foot{margin-top:2.2rem}
+  .art::after{mix-blend-mode:normal;
+    background:linear-gradient(180deg,rgba(251,243,228,0) 52%,rgba(251,243,228,.5) 80%,var(--paper))}
+  .col{order:2;min-height:0;overflow-y:auto;overscroll-behavior:contain;
+    padding:1.1rem var(--gut) 1.3rem}
+  .col > .mid{padding:.9rem 0 0}
+  .top,.foot{padding-right:0}
+  .mark{font-size:1.2rem}
+  .lede{margin-top:1.05rem;line-height:1.55}
+  .quote{margin-top:1.2rem}
+  form{margin-top:1.15rem}
+  .fine{margin-top:.9rem}
+  .foot{margin-top:1.3rem}
   .wrap::before{bottom:-30%;left:-40%}
+}
+@media (max-width:880px){
+  .art{height:min(24svh,190px);min-height:146px}
+  h1{font-size:2.1rem}
+  .lede{font-size:.88rem;line-height:1.52;margin-top:.85rem}
+  .quote{font-size:.9rem;margin-top:.95rem;padding-left:.9rem}
+  .eyebrow{margin-bottom:.8rem;font-size:.62rem}
+  form{margin-top:.95rem}
+  button{margin-top:1rem;font-size:.8rem}
+  .fine{font-size:.68rem;line-height:1.45;margin-top:.75rem}
+  .foot{margin-top:1rem;font-size:.6rem;line-height:1.5}
+  .col{padding:.9rem var(--gut) 1rem}
+  .col > .mid{padding-top:.6rem}
+  .f input{padding:.66rem .8rem;font-size:.95rem}
+  .status{padding:.85rem 1rem .9rem 2.9rem;font-size:.84rem;margin-top:1rem}
+  .status strong{font-size:1.08rem}
+}
+@media (max-width:880px) and (max-height:700px){
+  .quote{display:none}
+  .art{height:20svh;min-height:126px}
+  h1{font-size:2rem}
+  .lede{font-size:.85rem}
+  .fine{font-size:.65rem}
 }
 @media (prefers-reduced-motion:reduce){
   *{animation-duration:.001ms !important;transition-duration:.001ms !important}
@@ -232,14 +303,14 @@ button:disabled::before{background:var(--ink-3);width:2.6rem}
       <h1>The light is already<br><em>changing.</em></h1>
 
       <p class="lede">
-        <b>Bloom &amp; Rise</b> is a new practice from Roshunda M. Hartison, MEd, LPC.
+        <b>Bloom &amp; Rise</b> is a new practice from Roshunda M. Hartison, M.Ed., LPC.
         Individual therapy for body image and living well in the body you have, identity,
         self trust, anxiety, and the long middle of becoming someone new.
       </p>
 
       <blockquote class="quote">
         Without change, there would be no butterflies.
-        <span>Roshunda M. Hartison, MEd, LPC</span>
+        <span>Roshunda M. Hartison, M.Ed., LPC</span>
       </blockquote>
 
       <form id="join" novalidate>
@@ -259,7 +330,7 @@ button:disabled::before{background:var(--ink-3);width:2.6rem}
         </div>
         <input class="hp" type="text" name="website" tabindex="-1" autocomplete="off" aria-hidden="true">
         <button type="button" id="cta">Tell me when you open</button>
-        <p class="fine">
+        <p class="fine" id="fine">
           One note when the doors open, and nothing else. Unsubscribe any time, or write to
           <a href="mailto:hello@bloomandrisetherapy.com">hello@bloomandrisetherapy.com</a>.
           Please don't include private health details in this form.
@@ -268,7 +339,7 @@ button:disabled::before{background:var(--ink-3);width:2.6rem}
       </form>
     </main>
 
-    <footer class="foot">Roshunda M. Hartison, MEd, LPC &middot; Licensed in Texas, Virginia &amp; Colorado</footer>
+    <footer class="foot">Roshunda M. Hartison, M.Ed., LPC &middot; Licensed in Texas, Virginia &amp; Colorado</footer>
   </div>
 
   <div class="art">
@@ -281,28 +352,79 @@ button:disabled::before{background:var(--ink-3);width:2.6rem}
   'use strict';
   var FORM_ID = '9823089';
   var ENDPOINT = 'https://app.kit.com/forms/' + FORM_ID + '/subscriptions';
+  var RESET_MS = 9000;
 
   var form = document.getElementById('join');
   var reveal = document.getElementById('reveal');
   var dawn = document.getElementById('dawn');
-  var opened = false;
   var status = document.getElementById('status');
-  var btn = form.querySelector('button');
+  var cta = document.getElementById('cta');
+  var opened = false;
+  var resetTimer = null;
 
   function say(msg, bad){
     status.textContent = msg;
     status.className = 'status on' + (bad ? ' bad' : '');
   }
 
-  document.getElementById('cta').addEventListener('click', function(){
-    if(opened){ form.requestSubmit ? form.requestSubmit() : form.dispatchEvent(new Event('submit',{cancelable:true})); return; }
+  function open(){
     opened = true;
     reveal.classList.add('on');
     dawn.classList.add('on');
     form.fname.disabled = false;
     form.email.disabled = false;
-    btn.textContent = 'Join the list';
-    setTimeout(function(){ form.fname.focus({preventScroll:true}); }, 420);
+    cta.textContent = 'Join the list';
+    setTimeout(function(){
+      form.fname.focus({preventScroll:true});
+      var col = document.querySelector('.col');
+      if(col && col.scrollHeight > col.clientHeight){
+        col.scrollTo({top:col.scrollHeight, behavior:'smooth'});
+      }
+    }, 460);
+  }
+
+  /* back to a clean slate, so the next person at the table just walks up */
+  function reset(){
+    if(resetTimer){ clearTimeout(resetTimer); resetTimer = null; }
+    status.className = 'status';
+    status.textContent = '';
+    reveal.classList.remove('on');
+    dawn.classList.remove('on');
+    form.fname.value = '';
+    form.email.value = '';
+    form.website.value = '';
+    form.fname.disabled = true;
+    form.email.disabled = true;
+    cta.style.display = '';
+    cta.disabled = false;
+    cta.textContent = 'Tell me when you open';
+    opened = false;
+  }
+
+  function succeed(name){
+    reveal.classList.remove('on');
+    cta.style.display = 'none';
+    status.className = 'status on';
+    status.innerHTML =
+      '<span class="sun"></span>' +
+      '<strong>' + (name ? esc(name) + ', you' : 'You') + '’re on the list.</strong>' +
+      'One note from Roshunda the morning Bloom &amp; Rise opens its doors, and nothing else. ' +
+      'Watch for it from <b>hello@bloomandrisetherapy.com</b>.' +
+      '<button type="button" class="again">Add someone else</button>' +
+      '<span class="bar"></span>';
+    status.querySelector('.again').addEventListener('click', reset);
+    resetTimer = setTimeout(reset, RESET_MS);
+  }
+
+  function esc(s){
+    return String(s).replace(/[&<>"']/g, function(c){
+      return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c];
+    });
+  }
+
+  cta.addEventListener('click', function(){
+    if(!opened){ open(); return; }
+    form.requestSubmit ? form.requestSubmit() : form.dispatchEvent(new Event('submit',{cancelable:true}));
   });
 
   form.addEventListener('submit', function(e){
@@ -316,23 +438,20 @@ button:disabled::before{background:var(--ink-3);width:2.6rem}
       return;
     }
 
-    btn.disabled = true;
-    btn.textContent = 'Sending';
+    var name = form.fname.value.trim();
+    cta.disabled = true;
+    cta.textContent = 'Sending';
 
     var body = new FormData();
     body.append('email_address', form.email.value);
-    body.append('fields[first_name]', form.fname.value);
+    body.append('fields[first_name]', name);
 
     fetch(ENDPOINT, {method:'POST', body:body, headers:{'Accept':'application/json'}})
       .then(function(r){ return r.ok ? r.json().catch(function(){return {};}) : Promise.reject(r); })
-      .then(function(){
-        reveal.classList.remove('on');
-        btn.style.display = 'none';
-        say('You are on the list. Roshunda will be in touch when Bloom & Rise opens.');
-      })
+      .then(function(){ succeed(name); })
       .catch(function(){
-        btn.disabled = false;
-        btn.textContent = 'Join the list';
+        cta.disabled = false;
+        cta.textContent = 'Join the list';
         say('That did not go through. Please try again, or email hello@bloomandrisetherapy.com and we will add you by hand.', true);
       });
   });
