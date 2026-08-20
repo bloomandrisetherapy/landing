@@ -227,7 +227,7 @@ button:disabled::before{background:var(--ink-3);width:2.6rem}
 .foot{padding-right:var(--gut);font-size:.68rem;letter-spacing:.16em;text-transform:uppercase;color:var(--ink-3)}
 
 /* ─── art ───────────────────────────────────────────────────── */
-.art{position:relative;z-index:1;overflow:hidden;background:var(--paper-2)}
+.art{position:relative;z-index:1;overflow:hidden;background:var(--paper-2);transition:height .8s cubic-bezier(.2,.8,.3,1)}
 .art img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:52% 42%;
   animation:in 1.5s cubic-bezier(.16,.8,.3,1) both}
 @keyframes in{from{opacity:0;transform:scale(1.04)}to{opacity:1;transform:none}}
@@ -243,8 +243,8 @@ button:disabled::before{background:var(--ink-3);width:2.6rem}
 /* ─── one screen on phones, real padding at both edges ──────── */
 @media (max-width:880px){
   .wrap{grid-template-columns:1fr;grid-template-rows:auto minmax(0,1fr);height:100svh;min-height:0}
-  .art{order:1;height:30svh;min-height:164px}
-  .art img{object-position:50% 34%}
+  .art{order:1;height:34svh;min-height:210px}
+  .art img{object-position:50% 38%}
   .art::before{display:none}
   .art::after{mix-blend-mode:normal;
     background:linear-gradient(180deg,rgba(251,243,228,0) 52%,rgba(251,243,228,.5) 80%,var(--paper))}
@@ -261,24 +261,27 @@ button:disabled::before{background:var(--ink-3);width:2.6rem}
   .wrap::before{bottom:-30%;left:-40%}
 }
 @media (max-width:880px){
-  .art{height:min(24svh,190px);min-height:146px}
+  .art{height:min(34svh,300px);min-height:206px}
   h1{font-size:2.1rem}
-  .lede{font-size:.88rem;line-height:1.52;margin-top:.85rem}
+  .lede{font-size:.85rem;line-height:1.5;margin-top:.8rem}
   .quote{font-size:.9rem;margin-top:.95rem;padding-left:.9rem}
   .eyebrow{margin-bottom:.8rem;font-size:.62rem}
   form{margin-top:.95rem}
   button{margin-top:1rem;font-size:.8rem}
-  .fine{font-size:.68rem;line-height:1.45;margin-top:.75rem}
-  .foot{margin-top:1rem;font-size:.6rem;line-height:1.5}
+  .fine{font-size:.64rem;line-height:1.42;margin-top:.7rem}
+  .foot{margin-top:.8rem;font-size:.58rem;letter-spacing:.12em;line-height:1.45}
   .col{padding:.9rem var(--gut) 1rem}
-  .col > .mid{padding-top:.6rem}
+  .col > .mid{padding-top:.5rem;justify-content:flex-start}
   .f input{padding:.66rem .8rem;font-size:.95rem}
   .status{padding:.85rem 1rem .9rem 2.9rem;font-size:.84rem;margin-top:1rem}
   .status strong{font-size:1.08rem}
 }
+@media (max-width:880px){
+  body.open .art{height:19svh;min-height:118px}
+}
 @media (max-width:880px) and (max-height:700px){
   .quote{display:none}
-  .art{height:20svh;min-height:126px}
+  .art{height:32svh;min-height:200px}
   h1{font-size:2rem}
   .lede{font-size:.85rem}
   .fine{font-size:.65rem}
@@ -374,6 +377,7 @@ button:disabled::before{background:var(--ink-3);width:2.6rem}
     form.fname.disabled = false;
     form.email.disabled = false;
     cta.textContent = 'Join the list';
+    document.body.classList.add('open');
     setTimeout(function(){
       form.fname.focus({preventScroll:true});
       var col = document.querySelector('.col');
@@ -398,6 +402,7 @@ button:disabled::before{background:var(--ink-3);width:2.6rem}
     cta.style.display = '';
     cta.disabled = false;
     cta.textContent = 'Tell me when you open';
+    document.body.classList.remove('open');
     opened = false;
   }
 
@@ -452,6 +457,7 @@ button:disabled::before{background:var(--ink-3);width:2.6rem}
       .catch(function(){
         cta.disabled = false;
         cta.textContent = 'Join the list';
+    document.body.classList.add('open');
         say('That did not go through. Please try again, or email hello@bloomandrisetherapy.com and we will add you by hand.', true);
       });
   });
