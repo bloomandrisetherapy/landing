@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://www.bloomandrisetherapy.com/sitemap.xml
