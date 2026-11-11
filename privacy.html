@@ -26,7 +26,6 @@
 "knowsAbout":["Anxiety","Identity and self-trust","Body image","Depression","Obsessive-compulsive disorder","Exposure and response prevention"]}</script>
 <link rel="icon" href="img/favicon-32.png" type="image/png" sizes="32x32">
 <link rel="apple-touch-icon" href="img/apple-touch-icon.png">
-<script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js" defer></script>
 <link rel="preconnect" href="https://images.unsplash.com" crossorigin>
 <link rel="preload" href="fonts/fraunces.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="preload" href="fonts/fraunces-italic.woff2" as="font" type="font/woff2" crossorigin>
@@ -626,7 +625,7 @@ footer::before{display:none}
 
 <section class="band legal">
   <div class="shell">
-    <p class="updated">Last updated October 2026</p>
+    <p class="updated">Last updated November 2026</p>
     
     <div class="prose">
 <h2 class="rise">What this covers</h2>
@@ -655,7 +654,7 @@ loaded from Google Fonts, which means your browser makes a request to Google to 
 <div class="prose">
 <h2 class="rise">Who else touches it</h2>
 <div class="prose-body rise" data-d="1">
-<p>The consult request form is delivered by EmailJS, workshop interest signups are held in
+<p>The consult request form is delivered through Resend, workshop interest signups are held in
 Kit, and email is handled by Google Workspace. For clients using insurance, scheduling,
 billing, and the clinical record are handled through Headway. For private pay clients, they
 live in SimplePractice. Each is a separate system with its own protections and its own
@@ -752,15 +751,12 @@ posted here. Questions go to
   'use strict';
 
   /* ------------------------------------------------------------------
-     FORM SETTINGS  —  fill these three in, then the forms are live.
-     EmailJS dashboard: Account > General (public key),
-     Email Services (service id), Email Templates (template id).
-     The destination inbox is set on the TEMPLATE in EmailJS,
-     not here, so you can retarget it without touching the site.
+     FORM SETTINGS
+     Consult requests post to /api/contact (functions/api/contact.js),
+     which sends them through Resend. The inbox is set by TO_EMAIL in
+     the Cloudflare Pages settings, not here.
   ------------------------------------------------------------------ */
-  var EMAILJS_PUBLIC_KEY = 'mI7_7CRV0r59VHmYU';
-  var EMAILJS_SERVICE_ID = 'service_bloomrise';
-  var EMAILJS_TEMPLATE_ID = 'template_consult';
+  var CONTACT_ENDPOINT = '/api/contact';
   var KIT_FORM_ID = '9823089';          /* numeric id from the Kit form URL */
 
   document.getElementById('yr').textContent = new Date().getFullYear();
@@ -882,7 +878,7 @@ posted here. Questions go to
     return true;
   }
   function say(s,msg){ s.textContent = msg; s.classList.add('on'); }
-  function configured(v){ return v && v.indexOf('EMAILJS_') !== 0 && v.indexOf('KIT_') !== 0; }
+  function configured(v){ return v && v.indexOf('KIT_') !== 0; }
 
   /* ---- consult request goes straight to the practice inbox ---- */
   (function(){
@@ -890,23 +886,48 @@ posted here. Questions go to
     var s = document.getElementById('contactStatus');
     if(!f || !s) return;
     var btn = f.querySelector('button.submit');
-    if(configured(EMAILJS_PUBLIC_KEY) && window.emailjs){ emailjs.init({publicKey:EMAILJS_PUBLIC_KEY}) }
+    var REACH = 'please call <a href="tel:+13465509348">(346) 550 9348</a> or email <a href="mailto:hello@bloomandrisetherapy.com">hello@bloomandrisetherapy.com</a>';
+    var SENT = 'Thank you. Your message is on its way to Roshunda, and a confirmation is headed to your inbox. If you don\u2019t hear back within two business days, ' + REACH + '. If it is urgent, call or text <a href="tel:988">988</a>.';
+    var FALLBACK = 'Sorry, your message didn\u2019t go through. Please call <a href="tel:+13465509348">(346) 550 9348</a> or email <a href="mailto:hello@bloomandrisetherapy.com">hello@bloomandrisetherapy.com</a> and it will reach her.';
+    function sayHtml(msg){ s.innerHTML = msg; s.classList.add('on'); }
     f.addEventListener('submit',function(e){
       e.preventDefault();
       if(!ready(f,s)) return;
-      if(!configured(EMAILJS_PUBLIC_KEY) || !window.emailjs){
-        say(s,'This form is not connected yet, so nothing was sent. Please email hello@bloomandrisetherapy.com in the meantime.');
-        return;
-      }
       btn.disabled = true; say(s,'Sending.');
-      emailjs.sendForm(EMAILJS_SERVICE_ID, EMAILJS_TEMPLATE_ID, f, {publicKey:EMAILJS_PUBLIC_KEY})
+      var d = new FormData(f);
+      var payload = {
+        name: d.get('name') || '',
+        email: d.get('email') || '',
+        phone: d.get('phone') || '',
+        state: d.get('state') || '',
+        message: d.get('message') || '',
+        website: d.get('website') || '',
+        page: location.pathname,
+        'cf-turnstile-response': d.get('cf-turnstile-response') || ''
+      };
+      fetch(CONTACT_ENDPOINT, {
+        method: 'POST',
+        headers: {'content-type':'application/json'},
+        body: JSON.stringify(payload)
+      })
+        .then(function(r){
+          return r.json().catch(function(){ return {} }).then(function(out){
+            if(!r.ok || !out.ok){
+              /* a 400 with a message means something in the form needs fixing;
+                 anything else means delivery failed, so give the phone and email */
+              var err = new Error(out.error || 'Request failed');
+              err.fixable = r.status === 400 && Boolean(out.error);
+              throw err;
+            }
+          });
+        })
         .then(function(){
-          say(s,'Thank you. Your message is on its way to Roshunda, and a confirmation is headed to your inbox. She will reply within two business days. If it is urgent, please call or text 988.');
+          sayHtml(SENT);
           f.reset();
         })
-        .catch(function(){
+        .catch(function(err){
           btn.disabled = false;
-          say(s,'Something went wrong sending that. Please email hello@bloomandrisetherapy.com directly and it will reach her.');
+          if(err && err.fixable){ say(s, err.message) } else { sayHtml(FALLBACK) }
         });
     });
   })();
