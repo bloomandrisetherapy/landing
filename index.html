@@ -150,6 +150,8 @@ html.menu-open{overflow:hidden}
 .hero h1{color:var(--bark);max-width:11ch}
 .hero h1 .lit{font-style:italic;color:var(--orange-deep)}
 .hero-lede{font-size:clamp(1.02rem,1.2vw,1.16rem);color:var(--bark-2);max-width:36ch;margin:1.4rem 0 0}
+.hero-lede a{text-decoration-thickness:1px;text-underline-offset:.22em;text-decoration-color:rgba(180,85,28,.45);transition:text-decoration-color .3s,color .3s}
+.hero-lede a:hover{color:var(--orange-deep);text-decoration-color:currentColor}
 .hero-meta{font-size:.86rem;color:var(--bark-2);margin:clamp(1.1rem,2vw,1.5rem) 0 0;display:flex;flex-wrap:wrap;gap:.15rem .9rem;align-items:baseline;max-width:44ch}
 .hero-meta strong{color:var(--bark);font-weight:600}
 .hero-meta span::before{content:"";display:inline-block;width:14px;height:1px;background:var(--orange);margin-right:.7rem;vertical-align:.32em}
@@ -632,8 +634,8 @@ footer::before{display:none}
       <div class="hero-copy">
         <h1>You've spent a long time being <span class="lit">the strong one.</span></h1>
         <p class="hero-lede">
-          Therapy for anxiety, identity and self-trust, body image, and
-          depression. Thoughtful, collaborative care with room for creativity
+          Therapy for <a href="anxiety.html">anxiety</a>, <a href="identity.html">identity and self-trust</a>, <a href="body-image.html">body image</a>, and
+          <a href="depression.html">depression</a>. Thoughtful, collaborative care with room for creativity
           along the way.
         </p>
         <p class="hero-meta">
